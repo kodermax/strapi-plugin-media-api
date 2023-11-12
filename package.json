@@ -1,11 +1,19 @@
 {
   "name": "strapi-plugin-media-api",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "This is the description of the plugin.",
-  "strapi": {
-    "name": "media-api",
-    "description": "Description of media-api plugin",
-    "kind": "plugin"
+  "license": "MIT",
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "maintainers": [
+    {
+      "name": "A Strapi developer"
+    }
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.server.json",
+    "develop": "tsc -p tsconfig.server.json -w"
   },
   "dependencies": {
     "@strapi/design-system": "^1.6.3",
@@ -32,21 +40,13 @@
     "react-router-dom": "^5.2.0",
     "styled-components": "^5.2.1"
   },
-  "author": {
-    "name": "A Strapi developer"
-  },
-  "maintainers": [
-    {
-      "name": "A Strapi developer"
-    }
-  ],
   "engines": {
     "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
-  "scripts": {
-    "develop": "tsc -p tsconfig.server.json -w",
-    "build": "tsc -p tsconfig.server.json"
-  },
-  "license": "MIT"
+  "strapi": {
+    "name": "media-api",
+    "description": "Description of media-api plugin",
+    "kind": "plugin"
+  }
 }

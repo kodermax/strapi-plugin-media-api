@@ -16,6 +16,7 @@ export default ({ strapi }: { strapi: Strapi }) => ({
                         $eqi: folderName,
                     },
                 },
+                orderBy: { name: 'asc' },
                 populate: ["files", "children"],
             });
             if (folder) {
