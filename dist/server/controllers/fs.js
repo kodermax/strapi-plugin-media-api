@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = ({ strapi }) => ({
     index(ctx) {
         ctx.body = strapi
-            .plugin('strapi-plugin-file-system')
+            .plugin('strapi-plugin-media-api')
             .service('myService')
             .getWelcomeMessage();
     },
@@ -18,7 +18,9 @@ exports.default = ({ strapi }) => ({
                 },
                 populate: {
                     files: {
-                        sort: ['name:ASC'],
+                        sort: {
+                            name: 'ASC'
+                        },
                     }
                 },
             });
@@ -41,6 +43,13 @@ exports.default = ({ strapi }) => ({
                         $eqi: '/'
                     }
                 },
+                populate: {
+                    files: {
+                        orderBy: {
+                            name: 'asc'
+                        }
+                    }
+                }
             });
             ctx.body = files;
         }

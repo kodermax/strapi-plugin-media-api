@@ -3,7 +3,7 @@ import { Strapi } from '@strapi/strapi';
 export default ({ strapi }: { strapi: Strapi }) => ({
     index(ctx) {
         ctx.body = strapi
-            .plugin('strapi-plugin-file-system')
+            .plugin('strapi-plugin-media-api')
             .service('myService')
             .getWelcomeMessage();
     },
@@ -18,7 +18,9 @@ export default ({ strapi }: { strapi: Strapi }) => ({
                 },
                 populate: {
                     files: {
-                        sort: ['name:ASC'],
+                        sort: {
+                            name: 'ASC'
+                        },
                     }
                 },
             });
@@ -39,6 +41,13 @@ export default ({ strapi }: { strapi: Strapi }) => ({
                         $eqi: '/'
                     }
                 },
+                populate: {
+                    files: {
+                        orderBy: {
+                            name: 'asc'
+                        }
+                    }
+                }
             });
             ctx.body = files;
         } catch (err) {
