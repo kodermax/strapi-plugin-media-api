@@ -16,11 +16,11 @@ exports.default = ({ strapi }) => ({
                         $eqi: folderName,
                     },
                 },
-                populate: [{
-                        files: {
-                            sort: ['name:asc'],
-                        }
-                    }, "children"],
+                populate: {
+                    files: {
+                        sort: ['name:ASC'],
+                    }
+                },
             });
             if (folder) {
                 ctx.body = folder;
